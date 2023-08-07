@@ -1,8 +1,6 @@
 const { App } = require('@slack/bolt');
 const dotenv = require('dotenv');
-const home = require('./user-interface/home');
-
-// console.log(home());
+const { registerListeners } = require('./listeners');
 
 dotenv.config();
 
@@ -11,20 +9,11 @@ const app = new App({
   signingSecret: process.env.SLACK_SIGNING_SECRET
 });
 
-app.event('app_home_opened', async ({ event, client }) => {
-  await client.views.publish({
-    user_id: event.user,
-    view: home()
-  });
-});
-
-app.action('button_click', async ({ body, ack, say }) => {
-  await ack();
-  await say(`<@${body.user.id}> clicked the button`);
-});
+registerListeners(app);
 
 (async () => {
   await app.start(process.env.PORT || 3000);
 
+  // eslint-disable-next-line no-console
   console.log('⚡️ Bolt app is running!');
 })();
