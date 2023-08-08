@@ -1,5 +1,7 @@
-const eventsListener = require('./events');
+const events = require('./events');
+const actions = require('./actions');
 
 module.exports.registerListeners = (app) => {
-  eventsListener.register(app);
+  events.register(app);
+  actions.register(app);
 };
