@@ -1,5 +1,6 @@
 const PomodoroTimer = require('./pomodoro');
 
-const timer = new PomodoroTimer(25, 5);
+// Testing with 15 second work and 15 second break session
+const timer = new PomodoroTimer(0.25, 0.25);
 
 module.exports = timer;

@@ -52,7 +52,7 @@ class PomodoroTimer {
   getRemainingTime() {
     const minutes = Math.floor(this.remainingTime / 60);
     const seconds = this.remainingTime % 60;
-    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    return `${this.getSessionType()} ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
   }
 
   setWorkDuration(workDuration) {

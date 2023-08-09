@@ -14,7 +14,7 @@ function getRunningTimerView(timerDuration) {
   const homeTabView = HomeTab()
     .blocks(
       Blocks.Section({
-        text: `Pomodoro timer running for ${timerDuration} minutes.`
+        text: `Pomodoro timer: ${timerDuration} minutes remaining.`
       }),
       Blocks.Divider(),
       Blocks.Actions().elements(pauseButton, stopButton)
